@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presente 💖</title>
+    <link rel="shortcut icon" href="assets/fvicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+
+            height: 90vh;
+            gap: 5vh;
+            color: white;
+            font-family: "Lobster", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        button {
+            transition: 0.1s;
+            cursor: pointer;
+            border-radius: 10px;
+            color: white;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.253);
+            padding: 1vh;
+            font-size: 5vh;
+        }
+
+        span {
+            font-size: 40vw;
+            text-shadow: 0 0 2vw #ffffff, 0 0 1vw #ffffff;
+        }
+
+        img {
+            width: 50%;
+            filter: drop-shadow(0 0 5vw #ffabc4);
+        }
+
+        h1 {
+            width: 80%;
+            text-align: center;
+        }
+
+        button:hover {
+            transition: 0.3s;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background-color: rgba(255, 255, 255, 0.649);
+        }
+    </style>
+</head>
+
+<body class="flex">
+    <!-- DIV PARA EMOJIS FUNCIONAREM SEMPRE -->
+    <div id="emoji-container"></div>
+    <!--  -->
+    <img src="/assets/heart.png" alt="" id="batimento">
+    <h1>Comemoração do nosso 1º ano de namoro!</h1>
+    <a href="home/"><button title="Clique em mim!" id="click">Clique! 🥳</button></a>
+    <p>de caio para marie :3</p>
+    <script>
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji');
+            emoji.innerText = '💗';
+
+            const container = document.getElementById('emoji-container');
+            container.appendChild(emoji);
+
+            const size = Math.random() * 40 + 20;
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.style.fontSize = size + 'px';
+            emoji.style.animationDuration = Math.random() * 5 + 2 + 's';
+
+            setTimeout(() => emoji.remove(), 10000);
+        }
+        setInterval(createEmoji, 300)
+    </script>
+</body>
+
+</html>
