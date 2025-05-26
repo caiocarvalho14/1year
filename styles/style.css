@@ -11,10 +11,6 @@ html {
 }
 
 body {
-    background: linear-gradient(to bottom, #ff7d8ebe, #ff7d8e8e), url(../assets/background.png);
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 120%;
     height: 100vh;
     color: white;
     box-sizing: border-box;
@@ -22,6 +18,20 @@ body {
     justify-content: center;
     
     font-family: 'Poppins', sans-serif;
+}
+
+/* Simula background-attachment: fixed para iOS */
+body::before {
+    content: '';
+    position: fixed; /* Fixa o pseudo-elemento na viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #ff7d8ebe, #ff7d8e8e), url(../assets/background.png);
+    background-position: center;
+    background-size: 100vh; /* Mantém o tamanho original */
+    z-index: -10; /* Garante que fique atrás do conteúdo */
 }
 
 .page {
@@ -34,7 +44,7 @@ body {
         background-color: rgba(255, 255, 255, 0.226);
         box-sizing: border-box;
         padding: 3vh;
-        outline: auto #ffffff4d;
+        outline: 2px solid #ffffff; /* Contorno branco sólido com 2px de espessura */
         height: 100%;
         width: 100%;
 
@@ -53,7 +63,7 @@ body {
     height: 100%;
 
     img {
-        outline: auto;
+        outline: 2px solid #ffffff; /* Contorno branco sólido com 2px de espessura */
         width: 100%;
         border-radius: 2vh;
     }
@@ -68,7 +78,7 @@ body {
         background-color: rgba(255, 255, 255, 0.226);
         box-sizing: border-box;
         padding: 3vh;
-        outline: auto #ffffff4d;
+        outline: 2px solid #ffffff; /* Contorno branco sólido com 2px de espessura */
         height: 100%;
         width: 100%;
 

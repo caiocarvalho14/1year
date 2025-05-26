@@ -22,7 +22,7 @@ function atualizarContador() {
 // FIM CONTADOR DE TEMPO
 
 // TYPER
-const texto = "Feliz 1 ano de namoro, meu amor!";
+const texto = "Feliz 1 ano de namoro, minha metade!";
 const elemento = document.getElementById("typer");
 
 let i = 0;
