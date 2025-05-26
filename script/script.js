@@ -1,75 +1,3 @@
-// EMOJIS CHUVA
-let paginaAtual = 'corações'; // ou 'tempo', 'bolo' etc.
-
-const emojisPorPagina = {
-    corações: ['🎂'],
-    amor:['💗'],
-    tempo: ['⌛'],
-    festa: ['💞']
-};
-
-function createEmoji() {
-    const emoji = document.createElement('div');
-    emoji.classList.add('emoji');
-    emoji.innerText = getEmojiAtual();
-
-    document.getElementById('emoji-container').appendChild(emoji);
-
-    // Estilos iniciais
-    emoji.style.position = 'absolute';
-    emoji.style.left = Math.random() * window.innerWidth + 'px';
-    emoji.style.fontSize = Math.random() * 30 + 30 + 'px';
-    emoji.style.top = '-50px';
-    emoji.style.opacity = 1;
-    emoji.style.transition = 'opacity 0.5s linear';
-
-    let tempo = 0;
-    const duracao = 7000; // milissegundos
-
-    function animar() {
-        tempo += 16;
-
-        const progress = tempo / duracao;
-        const translateY = progress * window.innerHeight;
-
-        emoji.style.transform = `translateY(${translateY}px)`;
-
-        // Diminui a opacidade ao longo do tempo
-        emoji.style.opacity = 1 - progress;
-
-        // Atualiza o emoji conforme a página atual
-        emoji.innerText = getEmojiAtual();
-
-        if (tempo < duracao) {
-            requestAnimationFrame(animar);
-        } else {
-            emoji.remove(); // Remove o emoji do DOM ao fim da animação
-        }
-    }
-
-    requestAnimationFrame(animar);
-}
-
-
-function getEmojiAtual() {
-    const lista = emojisPorPagina[paginaAtual] || ['❓'];
-    return lista[Math.floor(Math.random() * lista.length)];
-}
-
-setInterval(createEmoji, 300);
-window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-
-    if (y < 600) {
-        paginaAtual = 'corações';
-    } else if (y < 1200) {
-        paginaAtual = 'tempo';
-    } else if (y < 1800) {
-        paginaAtual = 'festa';
-    } else {
-        paginaAtual = 'amor';
-    }
-});
 
 // FIM EMOJIS CHUVA
 // CONTADOR DE TEMPO
@@ -130,9 +58,6 @@ escrever();
 
 // CHAMAR FUNCOES
 
-
-setInterval(atualizarContador, 1000);
-atualizarContador();
 
 setInterval(atualizarContador, 1000);
 atualizarContador();
